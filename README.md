@@ -17,12 +17,14 @@ The goal of this project is to explore different ways of finding and working wit
   - [MATHS/2_Divisors/sqrtN_impl.py](MATHS/2_Divisors/sqrtN_impl.py) - Basic divisor finder using the square-root method.
   - [MATHS/2_Divisors/sqrtN_impl_sorted.py](MATHS/2_Divisors/sqrtN_impl_sorted.py) - Divisor finder that prints divisors in sorted order.
   - [MATHS/2_Divisors/nums_with_3_divisors.py](MATHS/2_Divisors/nums_with_3_divisors.py) - Prints numbers that have exactly three divisors, i.e. squares of primes.
-  - [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) - Counts the total number of divisors of a number using the square-root method.
+  - [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) - Counts the total number of divisors using the square-root method.
+  - [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) - Counts the total number of divisors using least prime factor logic.
 
 ## Complexity Notes
 
-- The divisor-counting approach in [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) runs in O(sqrt(n)) time.
-- It uses O(1) extra space.
+- The square-root method in [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space.
+- The least-prime-factor approach in [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) runs in O(n log log n) time for building the factor table and uses O(n) extra space.
+- The least-prime-factor method is more suitable when you need repeated factorization or want to work with prime structure directly.
 
 ## How to Run
 
