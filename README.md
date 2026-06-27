@@ -16,6 +16,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/2_Divisors](MATHS/2_Divisors) - Contains implementations for divisor-related problems.
   - [MATHS/2_Divisors/sqrtN_impl.py](MATHS/2_Divisors/sqrtN_impl.py) - Basic divisor finder using the square-root method.
   - [MATHS/2_Divisors/sqrtN_impl_sorted.py](MATHS/2_Divisors/sqrtN_impl_sorted.py) - Divisor finder that prints divisors in sorted order.
+  - [MATHS/2_Divisors/nums_with_3_divisors.py](MATHS/2_Divisors/nums_with_3_divisors.py) - Prints numbers that have exactly three divisors, i.e. squares of primes.
 
 ## How to Run
 
@@ -34,3 +35,5 @@ python MATHS/2_Divisors/sqrtN_impl_sorted.py
 ## Notes
 
 This repository is intentionally centered around the topic of divisors, making it a simple and focused practice space for number theory and problem-solving concepts.
+
+As new divisor-related programs and examples are added in the future, this README should be updated to keep the project documentation accurate and consistent.
