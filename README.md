@@ -19,12 +19,13 @@ The goal of this project is to explore different ways of finding and working wit
   - [MATHS/2_Divisors/nums_with_3_divisors.py](MATHS/2_Divisors/nums_with_3_divisors.py) - Prints numbers that have exactly three divisors, i.e. squares of primes.
   - [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) - Counts the total number of divisors using the square-root method.
   - [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) - Counts the total number of divisors using least prime factor logic.
+  - [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) - Calculates the sum of all divisors of a number using prime factorization.
 
 ## Complexity Notes
 
 - The square-root method in [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space.
 - The least-prime-factor approach in [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) runs in O(n log log n) time for building the factor table and uses O(n) extra space.
-- The least-prime-factor method is more suitable when you need repeated factorization or want to work with prime structure directly.
+- The sum-of-divisors in [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) runs in O(sqrt(n)) time and uses O(1) extra space, using the formula: σ(n) = ∏(p^(k+1) - 1) / (p - 1) for each prime power p^k in n's factorization.
 
 ## How to Run
 
