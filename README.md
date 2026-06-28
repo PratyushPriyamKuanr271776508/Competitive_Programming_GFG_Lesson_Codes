@@ -4,12 +4,13 @@ This repository is a small practice collection focused entirely on divisor-relat
 
 ## Purpose
 
-The goal of this project is to explore different ways of finding and working with divisors of a number, including:
+The goal of this project is to explore different ways of finding and working with divisors and prime factors of a number, including:
 
 - finding all divisors of a number
 - using the square-root approach for efficiency
 - printing divisors in sorted order
-- testing divisor logic with sample inputs
+- finding prime factors of a number
+- testing divisor and prime-factor logic with sample inputs
 
 ## Project Structure
 
@@ -22,6 +23,7 @@ The goal of this project is to explore different ways of finding and working wit
   - [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) - Calculates the sum of all divisors of a number using prime factorization.
 - [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) - Checks whether a number is prime using a square-root bound and 6k ± 1 optimization.
   - [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) - Generates a boolean prime table up to n using the Sieve of Eratosthenes.
+- [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) - Prints the prime factors of a number using the square-root approach by repeatedly dividing by the current prime factor.
 
 ## Complexity Notes
 
@@ -30,6 +32,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The sum-of-divisors in [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) runs in O(sqrt(n)) time and uses O(1) extra space, using the formula: σ(n) = ∏(p^(k+1) - 1) / (p - 1) for each prime power p^k in n's factorization.
 - The prime check in [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space. It tests only 2, 3, and numbers of the form 6k ± 1 up to √n.
 - The sieve in [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) runs in O(n log log n) time and uses O(n) space to build a prime table up to n.
+- The prime factor finder in [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space, because it tests possible divisors only up to √n while repeatedly dividing the number.
 
 ## How to Run
 
