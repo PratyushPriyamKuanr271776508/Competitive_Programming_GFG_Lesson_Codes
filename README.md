@@ -27,6 +27,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) - Finds the GCD by checking divisors from the smaller input down to 1. This is a correct brute-force implementation with O(min(a, b)) time and O(1) extra space.
 - [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) - Finds the GCD using the Euclidean algorithm with repeated subtraction. This is a correct implementation with O(max(a, b)) time and O(1) extra space in the subtraction-based form.
 - [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) - Finds the GCD using the optimized Euclidean algorithm with modulo reduction. This is the standard efficient form with O(log(min(a, b))) time and O(1) extra space.
+- [MATHS/5_GCD/lcm_2nums_brute_impl.py](MATHS/5_GCD/lcm_2nums_brute_impl.py) - Finds the LCM by checking multiples of the larger input until a common multiple is found. This is a correct brute-force implementation with O(lcm(a, b) / max(a, b)) time and O(1) extra space.
 
 ## Complexity Notes
 
@@ -39,6 +40,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The GCD implementation in [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) runs in O(min(a, b)) time and uses O(1) extra space, because it checks each candidate divisor from the smaller input down to 1.
 - The Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) runs in O(max(a, b)) time and uses O(1) extra space in this subtraction-based form, because each step subtracts one value from the other while preserving the gcd.
 - The optimized Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because each modulo step shrinks the problem size exponentially faster than repeated subtraction.
+- The brute-force LCM implementation in [MATHS/5_GCD/lcm_2nums_brute_impl.py](MATHS/5_GCD/lcm_2nums_brute_impl.py) runs in O(lcm(a, b) / max(a, b)) time and uses O(1) extra space, because it checks candidate multiples one by one until the first common multiple is found.
 
 ## How to Run
 
