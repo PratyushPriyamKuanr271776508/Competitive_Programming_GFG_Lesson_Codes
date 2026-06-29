@@ -26,6 +26,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) - Prints the prime factors of a number using the square-root approach by repeatedly dividing by the current prime factor.
 - [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) - Finds the GCD by checking divisors from the smaller input down to 1. This is a correct brute-force implementation with O(min(a, b)) time and O(1) extra space.
 - [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) - Finds the GCD using the Euclidean algorithm with repeated subtraction. This is a correct implementation with O(max(a, b)) time and O(1) extra space in the subtraction-based form.
+- [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) - Finds the GCD using the optimized Euclidean algorithm with modulo reduction. This is the standard efficient form with O(log(min(a, b))) time and O(1) extra space.
 
 ## Complexity Notes
 
@@ -37,6 +38,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The prime factor finder in [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space, because it tests possible divisors only up to √n while repeatedly dividing the number.
 - The GCD implementation in [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) runs in O(min(a, b)) time and uses O(1) extra space, because it checks each candidate divisor from the smaller input down to 1.
 - The Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) runs in O(max(a, b)) time and uses O(1) extra space in this subtraction-based form, because each step subtracts one value from the other while preserving the gcd.
+- The optimized Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because each modulo step shrinks the problem size exponentially faster than repeated subtraction.
 
 ## How to Run
 
