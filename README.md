@@ -24,6 +24,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) - Checks whether a number is prime using a square-root bound and 6k ± 1 optimization.
   - [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) - Generates a boolean prime table up to n using the Sieve of Eratosthenes.
 - [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) - Prints the prime factors of a number using the square-root approach by repeatedly dividing by the current prime factor.
+- [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) - Finds the GCD by checking divisors from the smaller input down to 1. This is a correct brute-force implementation with O(min(a, b)) time and O(1) extra space.
 
 ## Complexity Notes
 
@@ -33,6 +34,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The prime check in [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space. It tests only 2, 3, and numbers of the form 6k ± 1 up to √n.
 - The sieve in [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) runs in O(n log log n) time and uses O(n) space to build a prime table up to n.
 - The prime factor finder in [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space, because it tests possible divisors only up to √n while repeatedly dividing the number.
+- The GCD implementation in [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) runs in O(min(a, b)) time and uses O(1) extra space, because it checks each candidate divisor from the smaller input down to 1.
 
 ## How to Run
 
