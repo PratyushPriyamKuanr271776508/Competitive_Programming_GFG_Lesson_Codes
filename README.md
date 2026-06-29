@@ -29,6 +29,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) - Finds the GCD using the optimized Euclidean algorithm with modulo reduction. This is the standard efficient form with O(log(min(a, b))) time and O(1) extra space.
 - [MATHS/5_GCD/lcm_2nums_brute_impl.py](MATHS/5_GCD/lcm_2nums_brute_impl.py) - Finds the LCM by checking multiples of the larger input until a common multiple is found. This is a correct brute-force implementation with O(lcm(a, b) / max(a, b)) time and O(1) extra space.
 - [MATHS/5_GCD/lcm_2nums_euclidean_impl.py](MATHS/5_GCD/lcm_2nums_euclidean_impl.py) - Finds the LCM using the Euclidean algorithm through the identity lcm(a, b) = (a * b) // gcd(a, b). This is an efficient implementation with O(log(min(a, b))) time and O(1) extra space.
+- [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) - Computes gcd(a, b) and Bézout coefficients x, y such that a*x + b*y = gcd(a, b). This uses the extended Euclidean algorithm with O(log(min(|a|, |b|))) time and O(log(min(|a|, |b|))) space due to recursion.
 
 ## Complexity Notes
 
@@ -43,6 +44,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The optimized Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because each modulo step shrinks the problem size exponentially faster than repeated subtraction.
 - The brute-force LCM implementation in [MATHS/5_GCD/lcm_2nums_brute_impl.py](MATHS/5_GCD/lcm_2nums_brute_impl.py) runs in O(lcm(a, b) / max(a, b)) time and uses O(1) extra space, because it checks candidate multiples one by one until the first common multiple is found.
 - The Euclidean LCM implementation in [MATHS/5_GCD/lcm_2nums_euclidean_impl.py](MATHS/5_GCD/lcm_2nums_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because it computes the gcd with the Euclidean algorithm and then derives the LCM in constant time.
+- The extended Euclidean implementation in [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because the recursive algorithm repeatedly reduces the second argument and builds Bezout coefficients on the call stack.
 
 ## How to Run
 
