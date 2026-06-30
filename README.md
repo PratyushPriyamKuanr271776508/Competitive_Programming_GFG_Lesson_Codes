@@ -33,6 +33,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/5_GCD/diophantine_equation_impl.py](MATHS/5_GCD/diophantine_equation_impl.py) - Solves the linear Diophantine equation a*x + b*y = c using extended Euclidean coefficients. This implementation returns a particular integer solution if one exists, in O(log(min(|a|, |b|))) time and O(log(min(|a|, |b|))) space.
 - [MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py](MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py) - Counts numbers from 1 to n that are divisible by 3 or 5 using the inclusion-exclusion principle. This is an O(1) time and O(1) space implementation.
 - [MATHS/6_Mathematical_Principles/derangements.py](MATHS/6_Mathematical_Principles/derangements.py) - Computes the number of derangements for n objects using the recurrence D(n) = (n - 1)(D(n - 1) + D(n - 2)). This is an O(n) time and O(1) space implementation.
+- [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) - Finds the start and end indices of a subarray whose sum is divisible by the size of the array, using the pigeonhole principle on prefix-sum remainders.
 
 ## Complexity Notes
 
@@ -51,6 +52,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The derangements implementation in [MATHS/6_Mathematical_Principles/derangements.py](MATHS/6_Mathematical_Principles/derangements.py) runs in O(n) time and uses O(1) extra space, because it iteratively applies the recurrence using only two previous values.
 - The Euclidean LCM implementation in [MATHS/5_GCD/lcm_2nums_euclidean_impl.py](MATHS/5_GCD/lcm_2nums_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because it computes the gcd with the Euclidean algorithm and then derives the LCM in constant time.
 - The extended Euclidean implementation in [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because the recursive algorithm repeatedly reduces the second argument and builds Bezout coefficients on the call stack.
+- The pigeonhole-based implementation in [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) runs in O(n) time and uses O(n) extra space, because it computes prefix sums modulo n and uses the pigeonhole principle (n+1 prefix remainders into n possible values) to guarantee two indices with the same remainder, giving a subarray whose sum is divisible by n.
 
 ## How to Run
 
