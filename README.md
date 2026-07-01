@@ -35,6 +35,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/6_Mathematical_Principles/derangements.py](MATHS/6_Mathematical_Principles/derangements.py) - Computes the number of derangements for n objects using the recurrence D(n) = (n - 1)(D(n - 1) + D(n - 2)). This is an O(n) time and O(1) space implementation.
 - [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) - Finds the start and end indices of a subarray whose sum is divisible by the size of the array, using the pigeonhole principle on prefix-sum remainders.
 - [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) - Computes Euler's Totient function φ(n) by counting integers from 1 to n that are coprime with n (gcd(i, n) == 1). This is a correct brute-force implementation with O(n log n) time and O(1) extra space.
+- [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) - Computes Euler's Totient function φ(n) using the product formula φ(n) = n·∏(1 - 1/p) over distinct primes p, factoring n by trial division up to √n. This is a correct and efficient implementation with O(sqrt(n)) time and O(1) extra space.
 
 ## Complexity Notes
 
@@ -55,6 +56,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The extended Euclidean implementation in [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because the recursive algorithm repeatedly reduces the second argument and builds Bezout coefficients on the call stack.
 - The pigeonhole-based implementation in [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) runs in O(n) time and uses O(n) extra space, because it computes prefix sums modulo n and uses the pigeonhole principle (n+1 prefix remainders into n possible values) to guarantee two indices with the same remainder, giving a subarray whose sum is divisible by n.
 - The Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) runs in O(n log n) time and uses O(1) extra space, because it loops over all integers from 1 to n and calls the Euclidean gcd (O(log n)) for each, while keeping only a single counter.
+- The sqrt(n) Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) runs in O(sqrt(n)) time and uses O(1) extra space, because it factors n by trial division up to √n and applies the (1 - 1/p) factor once per distinct prime, using only a few scalar variables.
 
 ## How to Run
 
