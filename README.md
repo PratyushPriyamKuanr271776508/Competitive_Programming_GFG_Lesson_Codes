@@ -37,6 +37,7 @@ The goal of this project is to explore different ways of finding and working wit
 - [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) - Computes Euler's Totient function φ(n) by counting integers from 1 to n that are coprime with n (gcd(i, n) == 1). This is a correct brute-force implementation with O(n log n) time and O(1) extra space.
 - [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) - Computes Euler's Totient function φ(n) using the product formula φ(n) = n·∏(1 - 1/p) over distinct primes p, factoring n by trial division up to √n. This is a correct and efficient implementation with O(sqrt(n)) time and O(1) extra space.
 - [MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py](MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py) - Computes Euler's Totient function φ for all values up to n using a sieve based on the divisor-sum identity n = Σ_{d|n} φ(d), subtracting each finalized φ(p) from its multiples. This is a correct implementation with O(n log n) time and O(n) extra space.
+- [MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py](MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py) - Computes the modular multiplicative inverse of a modulo m using the extended Euclidean algorithm, returning None when gcd(a, m) ≠ 1. This is a correct implementation with O(log(min(a, m))) time and O(log(min(a, m))) space due to recursion.
 
 ## Complexity Notes
 
@@ -59,6 +60,7 @@ The goal of this project is to explore different ways of finding and working wit
 - The Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) runs in O(n log n) time and uses O(1) extra space, because it loops over all integers from 1 to n and calls the Euclidean gcd (O(log n)) for each, while keeping only a single counter.
 - The sqrt(n) Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) runs in O(sqrt(n)) time and uses O(1) extra space, because it factors n by trial division up to √n and applies the (1 - 1/p) factor once per distinct prime, using only a few scalar variables.
 - The sieve-based Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py](MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py) runs in O(n log n) time and uses O(n) extra space, because the outer loop runs n times and each p iterates over its ~n/p multiples (summing to n·H(n) ~ n log n), while an array of size n + 1 stores the totient of every value up to n.
+- The modular inverse implementation in [MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py](MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py) runs in O(log(min(a, m))) time and uses O(log(min(a, m))) space, because it relies on a single recursive extended Euclidean call to obtain the Bézout coefficient x and then normalizes x mod m in constant time.
 
 ## How to Run
 
