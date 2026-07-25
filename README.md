@@ -1,107 +1,132 @@
-# Divisors Practice Repository
+# Competitive Programming — Mathematical Algorithms
 
-This repository is a small practice collection focused entirely on divisor-related problems and implementations.
+A focused practice collection of number-theory and computational-geometry algorithms implemented in Python. Each file is a small, self-contained implementation of a single classic technique, annotated with its time and space complexity.
 
-## Purpose
+> The project began as a divisors-only practice space and has since grown to cover prime numbers, GCD/LCM, modular arithmetic, modular exponentiation, and geometric algorithms.
 
-The goal of this project is to explore different ways of finding and working with divisors and prime factors of a number, including:
+## Topics Covered
 
-- finding all divisors of a number
-- using the square-root approach for efficiency
-- printing divisors in sorted order
-- finding prime factors of a number
-- testing divisor and prime-factor logic with sample inputs
+- **Divisors** — enumerating divisors, counting them, and summing them
+- **Prime numbers** — primality testing and sieving
+- **Prime factorization** — extracting prime factors efficiently
+- **GCD & LCM** — brute-force, Euclidean, extended Euclidean, and Diophantine equations
+- **Combinatorial / counting principles** — inclusion–exclusion, derangements, pigeonhole
+- **Euler's Totient function** — brute-force, √n factorization, and sieve variants
+- **Modular arithmetic** — modular inverses (several methods) and the Chinese Remainder Theorem
+- **Modular exponentiation** — scalar and matrix fast exponentiation
+- **Geometric algorithms** — orientation, segment intersection, and convex hull
 
-## Project Structure
+## Repository Layout
 
-- [MATHS/2_Divisors](MATHS/2_Divisors) - Contains implementations for divisor-related problems.
-  - [MATHS/2_Divisors/sqrtN_impl.py](MATHS/2_Divisors/sqrtN_impl.py) - Basic divisor finder using the square-root method.
-  - [MATHS/2_Divisors/sqrtN_impl_sorted.py](MATHS/2_Divisors/sqrtN_impl_sorted.py) - Divisor finder that prints divisors in sorted order.
-  - [MATHS/2_Divisors/nums_with_3_divisors.py](MATHS/2_Divisors/nums_with_3_divisors.py) - Prints numbers that have exactly three divisors, i.e. squares of primes.
-  - [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) - Counts the total number of divisors using the square-root method.
-  - [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) - Counts the total number of divisors using least prime factor logic.
-  - [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) - Calculates the sum of all divisors of a number using prime factorization.
-- [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) - Checks whether a number is prime using a square-root bound and 6k ± 1 optimization.
-  - [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) - Generates a boolean prime table up to n using the Sieve of Eratosthenes.
-- [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) - Prints the prime factors of a number using the square-root approach by repeatedly dividing by the current prime factor.
-- [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) - Finds the GCD by checking divisors from the smaller input down to 1. This is a correct brute-force implementation with O(min(a, b)) time and O(1) extra space.
-- [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) - Finds the GCD using the Euclidean algorithm with repeated subtraction. This is a correct implementation with O(max(a, b)) time and O(1) extra space in the subtraction-based form.
-- [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) - Finds the GCD using the optimized Euclidean algorithm with modulo reduction. This is the standard efficient form with O(log(min(a, b))) time and O(1) extra space.
-- [MATHS/5_GCD/lcm_2nums_brute_impl.py](MATHS/5_GCD/lcm_2nums_brute_impl.py) - Finds the LCM by checking multiples of the larger input until a common multiple is found. This is a correct brute-force implementation with O(lcm(a, b) / max(a, b)) time and O(1) extra space.
-- [MATHS/5_GCD/lcm_2nums_euclidean_impl.py](MATHS/5_GCD/lcm_2nums_euclidean_impl.py) - Finds the LCM using the Euclidean algorithm through the identity lcm(a, b) = (a * b) // gcd(a, b). This is an efficient implementation with O(log(min(a, b))) time and O(1) extra space.
-- [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) - Computes gcd(a, b) and Bézout coefficients x, y such that a*x + b*y = gcd(a, b). This uses the extended Euclidean algorithm with O(log(min(|a|, |b|))) time and O(log(min(|a|, |b|))) space due to recursion.
-- [MATHS/5_GCD/diophantine_equation_impl.py](MATHS/5_GCD/diophantine_equation_impl.py) - Solves the linear Diophantine equation a*x + b*y = c using extended Euclidean coefficients. This implementation returns a particular integer solution if one exists, in O(log(min(|a|, |b|))) time and O(log(min(|a|, |b|))) space.
-- [MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py](MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py) - Counts numbers from 1 to n that are divisible by 3 or 5 using the inclusion-exclusion principle. This is an O(1) time and O(1) space implementation.
-- [MATHS/6_Mathematical_Principles/derangements.py](MATHS/6_Mathematical_Principles/derangements.py) - Computes the number of derangements for n objects using the recurrence D(n) = (n - 1)(D(n - 1) + D(n - 2)). This is an O(n) time and O(1) space implementation.
-- [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) - Finds the start and end indices of a subarray whose sum is divisible by the size of the array, using the pigeonhole principle on prefix-sum remainders.
-- [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) - Computes Euler's Totient function φ(n) by counting integers from 1 to n that are coprime with n (gcd(i, n) == 1). This is a correct brute-force implementation with O(n log n) time and O(1) extra space.
-- [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) - Computes Euler's Totient function φ(n) using the product formula φ(n) = n·∏(1 - 1/p) over distinct primes p, factoring n by trial division up to √n. This is a correct and efficient implementation with O(sqrt(n)) time and O(1) extra space.
-- [MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py](MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py) - Computes Euler's Totient function φ for all values up to n using a sieve based on the divisor-sum identity n = Σ_{d|n} φ(d), subtracting each finalized φ(p) from its multiples. This is a correct implementation with O(n log n) time and O(n) extra space.
-- [MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py](MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py) - Computes the modular multiplicative inverse of a modulo m using the extended Euclidean algorithm, returning None when gcd(a, m) ≠ 1. This is a correct implementation with O(log(min(a, m))) time and O(log(min(a, m))) space due to recursion.
-- [MATHS/8_Modular_Arithmetic/Modular_Inverse_with_Euler_Theorem.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_with_Euler_Theorem.py) - Computes the modular multiplicative inverse of a modulo m using Euler's theorem, a^(-1) ≡ a^(φ(m)-1) (mod m), combining a sqrt(n) totient with binary exponentiation and returning None when gcd(a, m) ≠ 1. This is a correct implementation with O(sqrt(m)) time and O(1) extra space.
-- [MATHS/8_Modular_Arithmetic/Modular_Inverse_With_Fermat_Theorem.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_With_Fermat_Theorem.py) - Computes the modular multiplicative inverse of a modulo a prime p using Fermat's Little Theorem, a^(-1) ≡ a^(p-2) (mod p), via built-in modular exponentiation. This is a correct implementation (for prime p with a not a multiple of p) with O(log p) time and O(1) extra space.
-- [MATHS/8_Modular_Arithmetic/Modular_Inverse_from_1_to_n.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_from_1_to_n.py) - Computes the modular inverses of all integers from 1 to n modulo a prime, using the linear recurrence i^(-1) ≡ -⌊mod/i⌋·(mod mod i)^(-1) (mod mod). This is a correct implementation (for prime mod with n < mod) with O(n) time and O(n) extra space.
-- [MATHS/8_Modular_Arithmetic/Chinese_Remainder_Theorem.py](MATHS/8_Modular_Arithmetic/Chinese_Remainder_Theorem.py) - Solves a system of congruences x ≡ a[i] (mod n[i]) via the Chinese Remainder Theorem, using extended-Euclidean modular inverses and the constructive formula x = Σ a[i]·m[i]·N[i] mod N. This is a correct implementation (for pairwise coprime moduli) with O(k log N) time and O(log(max n_i)) extra space.
-- [MATHS/9_Modular_Exponentiation/recursive_pow.py](MATHS/9_Modular_Exponentiation/recursive_pow.py) - Computes (base^exponent) mod using recursive binary exponentiation, squaring the base and halving the exponent. This is a correct implementation (for non-negative exponent) with O(log exponent) time and O(log exponent) space due to recursion.
-- [MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py](MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py) - Computes (x^n) mod using iterative bitwise binary exponentiation, scanning the exponent's bits from least to most significant while squaring the base. This is a correct implementation (for non-negative n) with O(log n) time and O(1) extra space.
-- [MATHS/9_Modular_Exponentiation/brute_force_matrix_exponentiation.py](MATHS/9_Modular_Exponentiation/brute_force_matrix_exponentiation.py) - Raises a square matrix to the power n by brute-force repeated multiplication from the identity, using a triple-loop matmul. This is a correct implementation (for non-negative n) with O(n·N^3) time and O(N^2) extra space.
-- [MATHS/9_Modular_Exponentiation/Matrix_Exponentiation_size3logN_impl.py](MATHS/9_Modular_Exponentiation/Matrix_Exponentiation_size3logN_impl.py) - Raises a square matrix to the power N using fast binary exponentiation, folding in the current power on set bits and squaring the base each step. This is a corrected implementation (for non-negative N) with O(N^3 log N) time and O(N^2) extra space.
-- [MATHS/10_Geometric_Algorithms/orientation_of_3_points.py](MATHS/10_Geometric_Algorithms/orientation_of_3_points.py) - Determines the orientation of three 2D points via the cross product of P1→P2 and P1→P3 (positive = counterclockwise, negative = clockwise, zero = collinear). This is a correct implementation with O(1) time and O(1) extra space.
-- [MATHS/10_Geometric_Algorithms/line_segment_intersection.py](MATHS/10_Geometric_Algorithms/line_segment_intersection.py) - Determines whether two line segments intersect using the four-orientation test plus collinear on-segment checks. This is a corrected implementation with O(1) time and O(1) extra space.
-- [MATHS/10_Geometric_Algorithms/convex_hull_brute_force.py](MATHS/10_Geometric_Algorithms/convex_hull_brute_force.py) - Computes the convex hull of a set of 2D points by brute force, keeping every edge for which all other points lie on one side, then walking the hull edges from the leftmost point. This is a corrected implementation (assuming no three collinear hull vertices) with O(N^3) time and O(N^2) extra space.
-- [MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py](MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py) - Computes the convex hull of a set of 2D points using Jarvis march (gift wrapping), repeatedly selecting the most clockwise point relative to the current edge with a farthest-point tie-break on collinear candidates. This is a corrected implementation (not all points collinear) with O(N·H) time and O(H) extra space.
+All code lives under `MATHS/`, grouped into numbered topic folders. Complexities are stated per file; `n`/`N` denotes the primary input size and `a`, `b`, `m`, `p` denote numeric operands.
 
-## Complexity Notes
+### `2_Divisors`
 
-- The square-root method in [MATHS/2_Divisors/total_divisors_sqrtN_impl.py](MATHS/2_Divisors/total_divisors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space.
-- The least-prime-factor approach in [MATHS/2_Divisors/total_divisors_least_prime_impl.py](MATHS/2_Divisors/total_divisors_least_prime_impl.py) runs in O(n log log n) time for building the factor table and uses O(n) extra space.
-- The sum-of-divisors in [MATHS/2_Divisors/sum_of_divisors.py](MATHS/2_Divisors/sum_of_divisors.py) runs in O(sqrt(n)) time and uses O(1) extra space, using the formula: σ(n) = ∏(p^(k+1) - 1) / (p - 1) for each prime power p^k in n's factorization.
-- The prime check in [MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py](MATHS/3_Prime_Numbers/isPrime_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space. It tests only 2, 3, and numbers of the form 6k ± 1 up to √n.
-- The sieve in [MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py](MATHS/3_Prime_Numbers/sieve_of_eratosthenes.py) runs in O(n log log n) time and uses O(n) space to build a prime table up to n.
-- The prime factor finder in [MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py](MATHS/4_Prime_Factors/prime_factors_sqrtN_impl.py) runs in O(sqrt(n)) time and uses O(1) extra space, because it tests possible divisors only up to √n while repeatedly dividing the number.
-- The GCD implementation in [MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py](MATHS/5_GCD/gcd_2nums_min(a_b)_impl.py) runs in O(min(a, b)) time and uses O(1) extra space, because it checks each candidate divisor from the smaller input down to 1.
-- The Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_euclidean_impl.py) runs in O(max(a, b)) time and uses O(1) extra space in this subtraction-based form, because each step subtracts one value from the other while preserving the gcd.
-- The optimized Euclidean GCD implementation in [MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py](MATHS/5_GCD/gcd_2nums_optimized_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because each modulo step shrinks the problem size exponentially faster than repeated subtraction.
-- The extended Euclidean implementation in [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because the recursive algorithm repeatedly reduces the second argument and builds Bézout coefficients on the call stack.
-- The Diophantine equation implementation in [MATHS/5_GCD/diophantine_equation_impl.py](MATHS/5_GCD/diophantine_equation_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because it relies on the extended Euclidean algorithm and scales the Bézout coefficients to solve a*x + b*y = c.
-- The inclusion-exclusion implementation in [MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py](MATHS/6_Mathematical_Principles/numbers_till_n_divisible_by_3_and_5.py) runs in O(1) time and uses O(1) extra space, because it computes the three floor divisions directly.
-- The derangements implementation in [MATHS/6_Mathematical_Principles/derangements.py](MATHS/6_Mathematical_Principles/derangements.py) runs in O(n) time and uses O(1) extra space, because it iteratively applies the recurrence using only two previous values.
-- The Euclidean LCM implementation in [MATHS/5_GCD/lcm_2nums_euclidean_impl.py](MATHS/5_GCD/lcm_2nums_euclidean_impl.py) runs in O(log(min(a, b))) time and uses O(1) extra space, because it computes the gcd with the Euclidean algorithm and then derives the LCM in constant time.
-- The extended Euclidean implementation in [MATHS/5_GCD/extended_euclidean_impl.py](MATHS/5_GCD/extended_euclidean_impl.py) runs in O(log(min(|a|, |b|))) time and uses O(log(min(|a|, |b|))) space, because the recursive algorithm repeatedly reduces the second argument and builds Bezout coefficients on the call stack.
-- The pigeonhole-based implementation in [MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py](MATHS/6_Mathematical_Principles/find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py) runs in O(n) time and uses O(n) extra space, because it computes prefix sums modulo n and uses the pigeonhole principle (n+1 prefix remainders into n possible values) to guarantee two indices with the same remainder, giving a subarray whose sum is divisible by n.
-- The Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_brute.py](MATHS/7_Euler_Totient_Function/euler_totient_brute.py) runs in O(n log n) time and uses O(1) extra space, because it loops over all integers from 1 to n and calls the Euclidean gcd (O(log n)) for each, while keeping only a single counter.
-- The sqrt(n) Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py](MATHS/7_Euler_Totient_Function/euler_totient_sqrt(n).py) runs in O(sqrt(n)) time and uses O(1) extra space, because it factors n by trial division up to √n and applies the (1 - 1/p) factor once per distinct prime, using only a few scalar variables.
-- The sieve-based Euler Totient implementation in [MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py](MATHS/7_Euler_Totient_Function/euler_totient_nlogn_impl.py) runs in O(n log n) time and uses O(n) extra space, because the outer loop runs n times and each p iterates over its ~n/p multiples (summing to n·H(n) ~ n log n), while an array of size n + 1 stores the totient of every value up to n.
-- The modular inverse implementation in [MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py](MATHS/8_Modular_Arithmetic/Modular_inverse_with_extended_euclidean.py) runs in O(log(min(a, m))) time and uses O(log(min(a, m))) space, because it relies on a single recursive extended Euclidean call to obtain the Bézout coefficient x and then normalizes x mod m in constant time.
-- The Euler-theorem modular inverse implementation in [MATHS/8_Modular_Arithmetic/Modular_Inverse_with_Euler_Theorem.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_with_Euler_Theorem.py) runs in O(sqrt(m)) time and uses O(1) extra space, because computing φ(m) by trial division up to √m dominates the subsequent O(log(φ(m))) binary exponentiation, and all routines use only a constant number of variables.
-- The Fermat-theorem modular inverse implementation in [MATHS/8_Modular_Arithmetic/Modular_Inverse_With_Fermat_Theorem.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_With_Fermat_Theorem.py) runs in O(log p) time and uses O(1) extra space, because it computes a^(p-2) mod p with built-in modular exponentiation (halving the exponent each step) using only a constant number of variables; it assumes p is prime and a is not a multiple of p.
-- The 1-to-n modular inverse implementation in [MATHS/8_Modular_Arithmetic/Modular_Inverse_from_1_to_n.py](MATHS/8_Modular_Arithmetic/Modular_Inverse_from_1_to_n.py) runs in O(n) time and uses O(n) extra space, because a single pass fills each of the n entries in constant time from an earlier inverse (index mod % i), and an array of size n + 1 stores all results; it assumes mod is prime and n < mod.
-- The Chinese Remainder Theorem implementation in [MATHS/8_Modular_Arithmetic/Chinese_Remainder_Theorem.py](MATHS/8_Modular_Arithmetic/Chinese_Remainder_Theorem.py) runs in O(k log N) time and uses O(log(max n_i)) extra space, because for k congruences it computes one O(log n_i) extended-Euclidean inverse per modulus and combines the terms with big-integer arithmetic over the product N = ∏ n_i; it assumes the moduli are pairwise coprime.
-- The recursive modular exponentiation implementation in [MATHS/9_Modular_Exponentiation/recursive_pow.py](MATHS/9_Modular_Exponentiation/recursive_pow.py) runs in O(log exponent) time and uses O(log exponent) space, because each recursive call squares the base and halves the exponent, giving a recursion depth of about log2(exponent); it assumes a non-negative exponent.
-- The iterative bitwise modular exponentiation implementation in [MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py](MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py) runs in O(log n) time and uses O(1) extra space, because the loop executes once per bit of the exponent (halving n each step) while maintaining only a constant number of variables with no recursion; it assumes a non-negative n.
-- The brute-force matrix exponentiation implementation in [MATHS/9_Modular_Exponentiation/brute_force_matrix_exponentiation.py](MATHS/9_Modular_Exponentiation/brute_force_matrix_exponentiation.py) runs in O(n·N^3) time and uses O(N^2) extra space, because it performs n successive O(N^3) triple-loop matrix multiplications starting from the identity while storing a single running N x N result; it assumes a non-negative n and a square matrix.
-- The fast matrix exponentiation implementation in [MATHS/9_Modular_Exponentiation/Matrix_Exponentiation_size3logN_impl.py](MATHS/9_Modular_Exponentiation/Matrix_Exponentiation_size3logN_impl.py) runs in O(N^3 log N) time and uses O(N^2) extra space, because it performs about log2(N) triple-loop matrix multiplications (folding in the current power on set bits and squaring the base each step) while storing a constant number of N x N matrices; it assumes a non-negative exponent and a square matrix.
-- The orientation test in [MATHS/10_Geometric_Algorithms/orientation_of_3_points.py](MATHS/10_Geometric_Algorithms/orientation_of_3_points.py) runs in O(1) time and uses O(1) extra space, because it evaluates a single cross-product expression whose sign classifies the three points as counterclockwise, clockwise, or collinear.
-- The segment intersection test in [MATHS/10_Geometric_Algorithms/line_segment_intersection.py](MATHS/10_Geometric_Algorithms/line_segment_intersection.py) runs in O(1) time and uses O(1) extra space, because it evaluates four orientation checks for the general straddle case plus constant-time bounding-box on-segment checks for the collinear cases.
-- The brute-force convex hull in [MATHS/10_Geometric_Algorithms/convex_hull_brute_force.py](MATHS/10_Geometric_Algorithms/convex_hull_brute_force.py) runs in O(N^3) time and uses O(N^2) extra space, because it tests each of the O(N^2) point pairs against all N points to decide whether the edge is on the hull, storing qualifying edges in an adjacency map that can hold O(N^2) entries; it assumes no three hull vertices are collinear.
-- The Jarvis march convex hull in [MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py](MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py) runs in O(N·H) time and uses O(H) extra space, because for each of the H hull vertices it scans all N points to find the most clockwise next vertex (worst case H = N gives O(N^2)), storing only the output hull; it assumes the points are not all collinear.
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `sqrtN_impl.py` | All divisors of a number via the √n method | O(√n) | O(1) |
+| `sqrtN_impl_sorted.py` | Divisors printed in sorted order | O(√n) | O(√n) |
+| `nums_with_3_divisors.py` | Numbers with exactly three divisors (squares of primes) | — | — |
+| `total_divisors_sqrtN_impl.py` | Count of divisors via the √n method | O(√n) | O(1) |
+| `total_divisors_least_prime_impl.py` | Count of divisors via least-prime-factor table | O(n log log n) build | O(n) |
+| `sum_of_divisors.py` | Sum of divisors σ(n) = ∏ (pᵏ⁺¹ − 1)/(p − 1) via factorization | O(√n) | O(1) |
 
-## How to Run
+### `3_Prime_Numbers`
 
-You can run any Python file directly:
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `isPrime_sqrtN_impl.py` | Primality test with a √n bound and 6k ± 1 optimization | O(√n) | O(1) |
+| `sieve_of_eratosthenes.py` | Boolean prime table up to n | O(n log log n) | O(n) |
+
+### `4_Prime_Factors`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `prime_factors_sqrtN_impl.py` | Prime factors via repeated division up to √n | O(√n) | O(1) |
+
+### `5_GCD`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `gcd_2nums_min(a_b)_impl.py` | GCD by brute-force divisor scan from min(a, b) down | O(min(a, b)) | O(1) |
+| `gcd_2nums_euclidean_impl.py` | GCD via subtraction-based Euclidean algorithm | O(max(a, b)) | O(1) |
+| `gcd_2nums_optimized_euclidean_impl.py` | GCD via modulo-based Euclidean algorithm | O(log min(a, b)) | O(1) |
+| `lcm_2nums_brute_impl.py` | LCM by scanning multiples of the larger input | O(lcm(a, b) / max(a, b)) | O(1) |
+| `lcm_2nums_euclidean_impl.py` | LCM via lcm(a, b) = a·b / gcd(a, b) | O(log min(a, b)) | O(1) |
+| `extended_euclidean_impl.py` | gcd plus Bézout coefficients (a·x + b·y = gcd) | O(log min(\|a\|, \|b\|)) | O(log min(\|a\|, \|b\|)) |
+| `diophantine_equation_impl.py` | Particular integer solution to a·x + b·y = c | O(log min(\|a\|, \|b\|)) | O(log min(\|a\|, \|b\|)) |
+
+### `6_Mathematical_Principles`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `numbers_till_n_divisible_by_3_and_5.py` | Count of 1..n divisible by 3 or 5 (inclusion–exclusion) | O(1) | O(1) |
+| `derangements.py` | Derangements via D(n) = (n − 1)(D(n − 1) + D(n − 2)) | O(n) | O(1) |
+| `find_start_end_idx_for_subarray_sum_divisible_by_size_of_arr.py` | Subarray with sum divisible by array size (pigeonhole on prefix remainders) | O(n) | O(n) |
+
+### `7_Euler_Totient_Function`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `euler_totient_brute.py` | φ(n) by counting integers coprime with n | O(n log n) | O(1) |
+| `euler_totient_sqrt(n).py` | φ(n) via φ(n) = n·∏(1 − 1/p), factoring up to √n | O(√n) | O(1) |
+| `euler_totient_nlogn_impl.py` | φ for all values ≤ n via the sieve identity n = Σ_{d\|n} φ(d) | O(n log n) | O(n) |
+
+### `8_Modular_Arithmetic`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `Modular_inverse_with_extended_euclidean.py` | Modular inverse via extended Euclidean (None if gcd ≠ 1) | O(log min(a, m)) | O(log min(a, m)) |
+| `Modular_Inverse_with_Euler_Theorem.py` | Modular inverse via a⁻¹ ≡ a^(φ(m)−1) (√n totient + fast pow) | O(√m) | O(1) |
+| `Modular_Inverse_With_Fermat_Theorem.py` | Modular inverse mod prime p via a⁻¹ ≡ a^(p−2) | O(log p) | O(1) |
+| `Modular_Inverse_from_1_to_n.py` | Inverses of 1..n mod a prime via linear recurrence | O(n) | O(n) |
+| `Chinese_Remainder_Theorem.py` | Solve x ≡ a[i] (mod n[i]) for pairwise-coprime moduli | O(k log N) | O(log max nᵢ) |
+
+### `9_Modular_Exponentiation`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `recursive_pow.py` | (base^exp) mod m via recursive binary exponentiation | O(log exp) | O(log exp) |
+| `iterative_bitwise_pow.py` | (x^n) mod m via iterative bitwise exponentiation | O(log n) | O(1) |
+| `brute_force_matrix_exponentiation.py` | Mⁿ by repeated multiplication from the identity | O(n·N³) | O(N²) |
+| `Matrix_Exponentiation_size3logN_impl.py` | Mⁿ via fast binary matrix exponentiation | O(N³ log N) | O(N²) |
+
+### `10_Geometric_Algorithms`
+
+| File | Description | Time | Space |
+|------|-------------|------|-------|
+| `orientation_of_3_points.py` | Orientation of a point triple via cross product (CCW / CW / collinear) | O(1) | O(1) |
+| `line_segment_intersection.py` | Segment intersection via four-orientation test + on-segment checks | O(1) | O(1) |
+| `convex_hull_brute_force.py` | Convex hull by keeping edges with all points on one side | O(N³) | O(N²) |
+| `convex_hull_Jarvis_March.py` | Convex hull via Jarvis march (gift wrapping) | O(N·H) | O(H) |
+
+## Assumptions & Caveats
+
+Some implementations assume specific input conditions:
+
+- **Fermat-based inverse** assumes `p` is prime and `a` is not a multiple of `p`.
+- **1-to-n inverses** and the **linear-recurrence** approach assume a prime modulus with `n < mod`.
+- **Chinese Remainder Theorem** assumes the moduli are pairwise coprime.
+- **Modular / matrix exponentiation** assume a non-negative exponent (and a square matrix for the matrix variants).
+- **Convex hull** routines assume the points are not all collinear; the brute-force variant additionally assumes no three hull vertices are collinear.
+
+## Running the Code
+
+Each file is standalone and can be run directly:
 
 ```bash
 python MATHS/2_Divisors/sqrtN_impl.py
+python MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py
+python MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py
 ```
 
-Or for the sorted version:
+Files that expose reusable functions include a small `if __name__ == "__main__":` demo block so you can see example output immediately.
 
-```bash
-python MATHS/2_Divisors/sqrtN_impl_sorted.py
-```
+## Contributing / Extending
 
-## Notes
+When adding a new implementation:
 
-This repository is intentionally centered around the topic of divisors, making it a simple and focused practice space for number theory and problem-solving concepts.
-
-As new divisor-related programs and examples are added in the future, this README should be updated to keep the project documentation accurate and consistent.
+1. Place it in the matching numbered topic folder (or create a new one).
+2. Add a module-level docstring stating what it does and its time/space complexity.
+3. Include a short `__main__` demo with a couple of sample inputs.
+4. Add a row for it in the relevant table above so this README stays accurate.
