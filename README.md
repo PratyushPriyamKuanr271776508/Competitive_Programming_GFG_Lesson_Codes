@@ -14,7 +14,7 @@ A focused practice collection of number-theory and computational-geometry algori
 - **Euler's Totient function** — brute-force, √n factorization, and sieve variants
 - **Modular arithmetic** — modular inverses (several methods) and the Chinese Remainder Theorem
 - **Modular exponentiation** — scalar and matrix fast exponentiation
-- **Geometric algorithms** — orientation, segment intersection, and convex hull
+- **Geometric algorithms** — orientation, segment intersection, convex hull, closest pair, and sweep-line intersection detection
 
 ## Repository Layout
 
@@ -101,6 +101,7 @@ All code lives under `MATHS/`, grouped into numbered topic folders. Complexities
 | [`convex_hull_Jarvis_March.py`](MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py) | Convex hull via Jarvis march (gift wrapping) | O(N·H) | O(H) |
 | [`convex_hull_Graham_Scan.py`](MATHS/10_Geometric_Algorithms/convex_hull_Graham_Scan.py) | Convex hull via Graham scan (polar-angle sort + stack sweep) | O(N log N) | O(N) |
 | [`closest_pair_divide_and_conquer.py`](MATHS/10_Geometric_Algorithms/closest_pair_divide_and_conquer.py) | Closest pair of points via divide & conquer (recursive x-split + y-sorted strip scan) | O(N log N) | O(N) |
+| [`sweep_line_segment_intersection.py`](MATHS/10_Geometric_Algorithms/sweep_line_segment_intersection.py) | Detects whether any two segments intersect via a sweep line over start/end/vertical events | O((n + k) log n) typical | O(n) |
 
 ## Assumptions & Caveats
 
@@ -111,6 +112,13 @@ Some implementations assume specific input conditions:
 - **Chinese Remainder Theorem** assumes the moduli are pairwise coprime.
 - **Modular / matrix exponentiation** assume a non-negative exponent (and a square matrix for the matrix variants).
 - **Convex hull** routines assume the points are not all collinear; the brute-force variant additionally assumes no three hull vertices are collinear.
+- **Sweep-line intersection** is robust when active segments keep a stable vertical order between events; very dense crossings or many coincident/vertical endpoints may not be handled fully generally.
+
+## Dependencies
+
+Most files are dependency-free and run on the Python standard library. The exception:
+
+- `sweep_line_segment_intersection.py` requires **`sortedcontainers`** — install with `pip install sortedcontainers`.
 
 ## Running the Code
 
@@ -119,7 +127,7 @@ Each file is standalone and can be run directly:
 ```bash
 python MATHS/2_Divisors/sqrtN_impl.py
 python MATHS/9_Modular_Exponentiation/iterative_bitwise_pow.py
-python MATHS/10_Geometric_Algorithms/convex_hull_Graham_Scan.py
+python MATHS/10_Geometric_Algorithms/closest_pair_divide_and_conquer.py
 ```
 
 Files that expose reusable functions include a small `if __name__ == "__main__":` demo block so you can see example output immediately.
