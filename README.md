@@ -100,6 +100,7 @@ All code lives under `MATHS/`, grouped into numbered topic folders. Complexities
 | [`convex_hull_brute_force.py`](MATHS/10_Geometric_Algorithms/convex_hull_brute_force.py) | Convex hull by keeping edges with all points on one side | O(N³) | O(N²) |
 | [`convex_hull_Jarvis_March.py`](MATHS/10_Geometric_Algorithms/convex_hull_Jarvis_March.py) | Convex hull via Jarvis march (gift wrapping) | O(N·H) | O(H) |
 | [`convex_hull_Graham_Scan.py`](MATHS/10_Geometric_Algorithms/convex_hull_Graham_Scan.py) | Convex hull via Graham scan (polar-angle sort + stack sweep) | O(N log N) | O(N) |
+| [`closest_pair_divide_and_conquer.py`](MATHS/10_Geometric_Algorithms/closest_pair_divide_and_conquer.py) | Closest pair of points via divide & conquer (recursive x-split + y-sorted strip scan) | O(N log N) | O(N) |
 
 ## Assumptions & Caveats
 
